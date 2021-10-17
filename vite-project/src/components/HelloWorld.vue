@@ -10,9 +10,7 @@ const emit = defineEmits(["myclick"]);
 const onclick = () => {
   emit("myclick");
 };
-// console.log(this); // undefined
 const someMethods = () => {
-  console.log("哈哈哈哈");
 };
 
 // 将组件暴露出去

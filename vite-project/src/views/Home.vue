@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-// import { login } from "../apis/test";
 //1.直接导入组件
 import HelloWorld from "@/components/HelloWorld.vue";
 import JsxComVue from "@/components/JsxCom.vue";
@@ -16,13 +15,6 @@ const hw = ref(null);
 const onmyclick = () => {
   hw.value.someMethods();
 };
-// login({})
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 </script>
 
 <style lang="scss" scoped></style>

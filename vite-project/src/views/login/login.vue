@@ -11,7 +11,6 @@ const router = useRouter();
 const toLogin = () => {
   login({ name: "admin", password: "123456" })
     .then((result) => {
-      console.log(result);
       if (result.status === 200) {
         store.commit("user/SETTOKNE", result.token);
         store.commit("user/SETROLE", result.role);

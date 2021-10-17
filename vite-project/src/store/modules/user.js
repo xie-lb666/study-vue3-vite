@@ -1,6 +1,6 @@
 const state = () => ({
     token: '',
-    role: 'admin',
+    role: '',
     user: {},
 })
 

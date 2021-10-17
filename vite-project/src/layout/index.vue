@@ -8,14 +8,13 @@
         mode="inline"
         @click="goPage"
       >
-        <a-menu-item key="/user/home" title="home">
-          <user-outlined />
-          <span>home</span>
-        </a-menu-item>
-        <a-menu-item key="/user/about" title="about">
-          <video-camera-outlined />
-          <span>about</span>
-        </a-menu-item>
+        <a-sub-menu :key="item.path" v-for="(item, i) in navList">
+          <template #icon>
+            <MailOutlined />
+          </template>
+          <template #title>{{item.name}}</template>
+          <a-menu-item :key="v.path" v-for="(v) in item.children">{{v.name}}</a-menu-item>
+        </a-sub-menu>
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -69,8 +68,13 @@
 import { UserOutlined, VideoCameraOutlined } from "@ant-design/icons-vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const router = useRouter();
+const store = useStore();
+console.log(store.state.app.routerList);
+
+const navList = store.state.app.routerList;
 
 const selectedKeys = ref(["/user/home"]);
 
@@ -79,9 +83,7 @@ const show = () => {
   collapsed = !collapsed;
 };
 
-const handleMenuClick = (e) => {
-  console.log("click", e);
-};
+const handleMenuClick = (e) => {};
 
 const goPage = (item) => {
   router.push({ path: item.key });

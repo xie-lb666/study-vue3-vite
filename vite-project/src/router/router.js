@@ -8,13 +8,11 @@ import {
 import store from '../store/index';
 import asyncRoutes from './asyncRoutes';
 router.beforeEach((to, from, next) => {
-    console.log(store.state.user.token);
     // 判断有无登录
     if (!store.state.user.token) {
         if (to.path === '/login') {
             next()
         } else {
-            // 没有tokne。跳登录
             next({
                 path: '/login'
             })
@@ -41,6 +39,15 @@ export const loadMenus = (module, next, to) => {
     routerList.forEach(item => {
         router.addRoute(item);
     });
+    let setRouterList = routerList.map((item) => {
+        return {
+            path: item.path,
+            icon: item.meta.icon,
+            name: item.name,
+            children: item.children
+        }
+    })
+    store.commit('app/SETROUTERLIST', setRouterList);
     next({
         ...to,
         replace: true
