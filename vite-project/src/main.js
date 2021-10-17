@@ -5,9 +5,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import element3 from "./plugins/elements3"
+// import element3 from "./plugins/elements3"
 
 import './styles/index.scss'
 
 
-createApp(App).use(router).use(store).use(element3).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
