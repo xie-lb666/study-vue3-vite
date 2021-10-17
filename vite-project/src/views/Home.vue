@@ -1,9 +1,8 @@
 <template>
   <div>
     主要内容
-    <!-- <h1 @click="$store.commit('add')">{{ $store.state.counter }}</h1>
-    <JsxComVue />
-    <HelloWorld :msg="'哈哈哈'" @myclick="onmyclick" ref="hw" /> -->
+    <!-- <JsxComVue /> -->
+    <!-- <HelloWorld :msg="'哈哈哈'" @myclick="onmyclick" ref="hw" /> -->
   </div>
 </template>
 

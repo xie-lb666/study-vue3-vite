@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped></style> -->
 
-<script lang="jsx">
+<!-- <script lang="jsx">
 import { ref } from "vue";
 export default {
   setup() {
@@ -41,4 +41,4 @@ export default {
     );
   },
 };
-</script>
+</script> -->

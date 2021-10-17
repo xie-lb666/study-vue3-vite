@@ -8,22 +8,26 @@ import {
 import store from '../store/index';
 import asyncRoutes from './asyncRoutes';
 router.beforeEach((to, from, next) => {
-    console.log(store.state.token);
+    console.log(store.state.user.token);
     // 判断有无登录
-    if (!store.state.token) {
-        // 没有tokne。跳登录
-        next({
-            path: '/login'
-        })
+    if (!store.state.user.token) {
+        if (to.path === '/login') {
+            next()
+        } else {
+            // 没有tokne。跳登录
+            next({
+                path: '/login'
+            })
+        }
     } else {
         // 设置导航,有导航则不用更新
-        if (!store.state.navflag) {
+        if (!store.state.app.loadMenus) {
             /**
              * 获得自己的权限字段，传给loadMenus ，动态添加路由
              */
-            const role = store.state.role;
+            const role = store.state.user.role;
             loadMenus(role, next, to);
-            store.commit('setNav')
+            store.commit('app/SETLOADMENUS')
         }
         next();
     }

@@ -2,20 +2,15 @@ import {
     createStore
 } from 'vuex'
 
+import app from './modules/app'
+import user from './modules/user'
+import getters from './getters'
+
 const store = createStore({
-    state: {
-        counter: 1,
-        token: '1111111111111',
-        navflag: false,
-        role: 'admin'
+    modules: {
+        app,
+        user
     },
-    mutations: {
-        add(state) {
-            state.counter++;
-        },
-        setNav(state) {
-            state.navflag = true
-        }
-    }
+    getters,
 });
 export default store;
