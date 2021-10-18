@@ -1,8 +1,9 @@
 import axios from 'axios';
 const baseURL = "http://127.0.0.1:8081";
+const proxyUrl = "/api";
 const timeout = 5000
 const service = axios.create({
-    baseURL: baseURL,
+    // baseURL: proxyUrl,
     timeout: timeout,
 })
 
